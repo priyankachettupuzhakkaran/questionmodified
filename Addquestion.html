@@ -5,117 +5,108 @@
     </title>
     <link rel="stylesheet" href="C:\Users\Flemin\Desktop\priyanka\project\questionmodified\css\bootstrap.css">
     
-    <link rel="stylesheet" href="C:\Users\Flemin\Desktop\priyanka\project\questionmodified\css\style.css">
+    
   <style>
-      .row{
-          margin-top: 100px;
-      }
       .col-sm{
           margin-top:100px;
           margin-left: 30px;
       }
-      .btn btn-secondary{
-          width:200px;
+      .btn,.btn-primary{
+          width:50px;
       }
       .col-lg-2{
           margin-top: 130px;
       }
+      .mystyle{
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: larger;
+            display:flex;
+            /* background-image: linear-gradient(45deg, #ff9494, #b10ef5);
+            box-shadow: 1px 3px 8px 1px #ada4a4; */
+            background-image: linear-gradient(45deg, #05bcdc, #55f5c1);
+            box-shadow: 1px 3px 8px 1px #49a9a9;
+      }
       
+      .mystyle a {
+        color: white !important;
+      }
+      form{
+        margin-top:60px;
+      }
+      button{
+        margin:auto;
+        width:80px !important;
+      }
+      .center {
+  margin: 8px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.howsee{
+  display:flex;
+}
   </style>
 </head>
 <body>
-    <header>
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light mystyle">
+        <a class="navbar-brand">Build Your Knowledge</a>
        
-       
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" background-color= "rgb(11, 226, 226)">
-            <a class="navbar-brand" href="index.html">
-                <div  class="nav flex-column">
-                <img src="C:\Users\Flemin\Desktop\priyanka\project\questionmodified\images\mylogo.jpg" width="50" height="50" class="d-inline-block align-top" alt=""></a>
-                
-                   <a class="navbar-brand" href="index.html" font-family="sans-serif" color="red">Interview Questions</a>
-                </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link"  href="Addquestion.html">Add Questions <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item active">
-                    <a class="nav-link"  href="Taketest.html">TakeTest <span class="sr-only">(current)</span></a>
-                  </li>
-                  
-            </div>
-            
-        </nav>
-        
-    </header>
-    <div class="row">
-        <div class="col-sm">        
-           <label for="basic-url">Question</label>
-            <div class="input-group mb-3">
-      
-            <input type="text" id="quest" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-            </div>
-        </div>
-        <div class="col-sm">        
-            <label for="basic-url">Option Type</label>
-             <div class="input-group mb-3">
-        
-            <input type="text" id="opttype" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-          </div>
-          </div>
-         <div class="col-sm">        
-            <label for="basic-url">options</label>
-             <div class="input-group mb-3">
-       
-             <input type="text" id="opt" class="form-control" id="basic-url" aria-describedby="basic-addon3">
-             </div>
-         </div>
-         <div class="col col-lg-2">
-            <button type="button" class="btn btn-primary" onclick="quesstionaire()">Add</button>
-          </div>
-
+    </nav>
+</header>
+<div class="container">
+<form>
+  <div class="form-row">
+  <div class="form-group col-md-4">
+    <label for="nameofsub">Name of the Subject</label>
+    <input type="text" class="form-control" id="nameofsub">
+  </div>
+    <div class="form-group col-md-2">
+      <label for="questionno">No of Questions</label>
+      <input type="number" class="form-control" id="questionno">
     </div>
-    <script src="C:\Users\Flemin\Desktop\priyanka\project\questionmodified\js\jquery-3.6.0.min.js"></script>
-    <script src="C:\Users\Flemin\Desktop\priyanka\project\questionmodified\css\bootstrap-4.6.0-dist\bootstrap-4.6.0-dist\js\bootstrap.bundle.min.js"></script> 
-    <script>
-      
-      var questions1 =JSON.parse(localStorage.getItem('quuest'));
-      if (questions1==null){
-        var questions=[]
-      }
-      else{
-        var questions=questions1
-      }        
-        function quesstionaire(){
-           
-            var questionreceived=$("#quest").val();
-            var opttypereceived=$("#opttype").val();
-            var optionreceived=$("#opt").val();
-            
-            var quest={
-                question: questionreceived,
-                types: opttypereceived,
-                options: optionreceived.split(",")
-            }
-            questions.push(quest)
-            localStorage.setItem('quuest', JSON.stringify(questions));
-            alert("question added successfully")
-                    $("#quest").val('')
-                    $("#opttype").val('')
-                    $("#opt").val('')
-                    $("#quest").focus();
-                    $("#quest").select();
-           
-        }
-        
-    </script>
+    <div class="form-group col-md-2">
+      <label for="time">Time </label>
+      <input type="text" class="form-control" id="time">
+    </div>
+  </div>
+  
+    <div class="form-group col-md-8">
+      <label for="question">Question</label>
+      <input type="text" class="form-control" id="question">
+    </div>
+    <div class="form-row">
+      <div class="form-group col-md-2">
+        <label for="opttype">Option Type</label>
+        <input type="number" class="form-control" id="opttype">
+      </div>
+      <div class="form-group col-md-2">
+        <label for="opt">Option </label>
+        <input type="text" class="form-control" id="opt">
+      </div>
+      <div class="col-md-1 howsee">
+        <div class="center">
+      <a href="Taketest.html" >
+        <button type="button" class="btn btn-success">Add</button>
+       </a>
+        </div>
+        </div>
+        <div class="col-md-1 howsee">
+       <div class="center">
+       <a href="Taketest.html" >
+        <button type="button" class="btn btn-success" disabled>Submit</button>
+       </a>
+      </div>
+       </div>
+
+      </div>
+  </div>
+
+</form>
+</div>
     
 
 </body>
