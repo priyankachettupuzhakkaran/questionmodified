@@ -3,7 +3,7 @@
     <title>
         Test Your Brain
     </title>
-    <link rel="stylesheet" href="C:\Users\Flemin\Desktop\priyanka\project\questionmodified\css\bootstrap.css">
+    <link rel="stylesheet" href="C:\Users\owner\Desktop\priyanka\questionmodified\css\bootstrap.css">
     
     
   <style>
@@ -48,6 +48,13 @@
 .howsee{
   display:flex;
 }
+.marginset{
+  padding-right: 5px;
+    padding-left: 5px;
+}
+.tabforsee{
+  display:flex;
+}
   </style>
 </head>
 <body>
@@ -58,55 +65,124 @@
     </nav>
 </header>
 <div class="container">
-<form>
-  <div class="form-row">
-  <div class="form-group col-md-4">
-    <label for="nameofsub">Name of the Subject</label>
-    <input type="text" class="form-control" id="nameofsub">
-  </div>
-    <div class="form-group col-md-2">
-      <label for="questionno">No of Questions</label>
-      <input type="number" class="form-control" id="questionno">
-    </div>
-    <div class="form-group col-md-2">
-      <label for="time">Time </label>
-      <input type="text" class="form-control" id="time">
-    </div>
-  </div>
+   <form>
+     <div class="form-row">
+       <div class="form-group col-md-4">
+         <label for="nameofsub">Name of the Subject</label>
+         <input type="text" class="form-control" id="nameofsub">
+       </div>
+       <div class="form-group col-md-2">
+          <label for="questionno">No of Questions</label>
+          <input type="number" class="form-control" id="questionno">
+       </div>
+       <div class="form-group col-md-2">
+          <label for="time">Time </label>
+          <input type="text" class="form-control" id="time">
+       </div>
+     </div>
   
-    <div class="form-group col-md-8">
+    <div class="form-group col-md-8 marginset">
       <label for="question">Question</label>
       <input type="text" class="form-control" id="question">
     </div>
     <div class="form-row">
       <div class="form-group col-md-2">
         <label for="opttype">Option Type</label>
-        <input type="number" class="form-control" id="opttype">
+        <input type="text" class="form-control" id="opttype">
       </div>
       <div class="form-group col-md-2">
         <label for="opt">Option </label>
         <input type="text" class="form-control" id="opt">
       </div>
+      <div class="form-group col-md-2">
+        <label for="opt">Answer </label>
+        <input type="text" class="form-control" id="ans">
+      </div>
       <div class="col-md-1 howsee">
         <div class="center">
-      <a href="Taketest.html" >
-        <button type="button" class="btn btn-success">Add</button>
-       </a>
+          <button type="button" id="add" onclick="addtable()" class="btn btn-success">Add</button>
         </div>
+      </div>
+      <div class="col-md-1 howsee">
+        <div class="center">
+           
+           <button type="button" id="submit" onclick="cardcreate()" class="btn btn-success" disabled>Submit</button>
+           
         </div>
-        <div class="col-md-1 howsee">
-       <div class="center">
-       <a href="Taketest.html" >
-        <button type="button" class="btn btn-success" disabled>Submit</button>
-       </a>
       </div>
-       </div>
 
-      </div>
-  </div>
+    </div>
 
-</form>
+ </form>
+    
+      <div class="row">
+        <div class="col-md-4 coluforquest">Questions</div>
+        <div class="col-md-2 coluforopttype">Option type</div>
+        <div class="col-md-2 coluforoptions">options</div>
+        <div class="col-md-1 coluforanswer">answer</div>
+      </div>  
+    
 </div>
+<script src=C:\Users\owner\Desktop\priyanka\questionmodified\js\jquery-3.6.0.min.js></script>
+<script>
+  quiz=[]
+  var qcount=0 
+ function addtable(){
+  var count=$("#questionno").val();
+  console.log(count)
+  qcount=qcount+1
+if(qcount==count){
+  $("#add").attr("disabled", true)&&$("#submit").attr("disabled", false);
+}
+var sub=$("#nameofsub").val();
+var count=$("#questionno").val();
+var tim=$("#time").val();
+ var qp=$("#question").val();
+ var opttype=$("#opttype").val();
+ var opt=$("#opt").val();
+ var ans=$("#ans").val();
+var divvr=$("<div class='row'></div>")
+var divvc1=$("<div class='col-md-4'></div>")
+var divvc2=$("<div class='col-md-2'></div>")
+var divvc3=$("<div class='col-md-2'></div>")
+var divvc4=$("<div class='col-md-1'></div>")
+divvr.append(divvc1.text(qp))
+$(".container").append(divvr)
+$("body").append($(".container"))
+divvr.append(divvc2.text(opttype))
+$(".container").append(divvr)
+$("body").append($(".container"))
+divvr.append(divvc3.text(opt))
+$(".container").append(divvr)
+$("body").append($(".container"))
+divvr.append(divvc4.text(ans))
+$(".container").append(divvr)
+$("body").append($(".container"))
+var test={
+  name:sub,
+  no: count,
+  time: tim
+}
+
+  var questions={
+    question:qp,
+    optiontype:opttype,
+    options:opt.split(","),
+    answer:ans
+  }
+
+quiz.push(questions)
+console.log(quiz)
+console.log(test)
+test.questionss=quiz
+
+
+localStorage.setItem('quuest', JSON.stringify(quiz));
+}
+
+
+
+</script>
     
 
 </body>
