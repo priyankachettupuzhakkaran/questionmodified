@@ -15,6 +15,9 @@
      }
      .col-md-8 {
      padding-top: 180px;
+     }
+    .col-md-4{
+     paddding-top:180px;
      } 
       .yup,.nope,.neither{
         width: 300px;
@@ -22,16 +25,12 @@
       .percenty,.percentn,.percentd{
         margin-left: 25px;
       }
-      .col-6, .col-md-4{
-        background-color: hsl(55, 64%, 79%);
-      }
+      
       .col-md-8{
-        background-color: rgb(243, 234, 137);
+        
         font-family: cursive;
       }
-      .row{
-        height: 100%;
-      }
+      
       nav{
         font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; 
       }

@@ -3,7 +3,7 @@
     <title>
         Test Your Brain
     </title>
-    <link rel="stylesheet" href="C:\Users\owner\Desktop\priyanka\questionmodified\css\bootstrap.css">
+    <link rel="stylesheet" href="C:\Users\Flemin\Desktop\priyanka\project\testseriessite\css\bootstrap.css">
     
     
   <style>
@@ -123,20 +123,149 @@
       </div>  
     
 </div>
-<script src=C:\Users\owner\Desktop\priyanka\questionmodified\js\jquery-3.6.0.min.js></script>
+<script src=C:\Users\Flemin\Desktop\priyanka\project\testseriessite\js\jquery-3.6.0.min.js></script>
 <script>
-  quiz=[]
+  var quiz=[]
+  var test={}
+  var testseries=[
+  {
+                name:"Electronic Devices",
+                no:"5",
+                time:"1",
+                questions:[{
+                    question:"what is a transistor?",
+                    optiontype:"checkbox",
+                    options:["amplifier", "switch","all of the above","none of these"],
+                    answer:"3"
+                },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:"2"
+            },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:"2"
+            },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:"2"
+            },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:"2"
+
+        }]
+            },
+            {
+                name:"Electronic Devices",
+                no:"5",
+                time:"1",
+                questions:[{
+                    question:"what is a transistor?",
+                    optiontype:"checkbox",
+                    options:["amplifier", "switch","all of the above","none of these"],
+                    answer:"3"
+                },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:"2"
+            },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:"2"
+            },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:"2"
+            },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:"2"
+
+        }]
+            },{
+                name:"Electronic Devices",
+                no:"5",
+                time:"1",
+                questions:[{
+                    question:"what is a transistor?",
+                    optiontype:"checkbox",
+                    options:["amplifier", "switch","all of the above","none of these"],
+                    answer:"3"
+                },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:"2"
+            },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:"2"
+            },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:"2"
+            },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:"2"
+
+        }]
+            },{
+                name:"Electronic Devices",
+                no:"5",
+                time:"1",
+                questions:[{
+                    question:"what is a transistor?",
+                    optiontype:"checkbox",
+                    options:["amplifier", "switch","all of the above","none of these"],
+                    answer:"3"
+                },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:"2"
+            },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:"2"
+            },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:"2"
+            },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:"2"
+
+        }]
+            }]
+  
+  
+
   var qcount=0 
  function addtable(){
-  var count=$("#questionno").val();
+   var count=$("#questionno").val();
   console.log(count)
   qcount=qcount+1
 if(qcount==count){
   $("#add").attr("disabled", true)&&$("#submit").attr("disabled", false);
 }
-var sub=$("#nameofsub").val();
-var count=$("#questionno").val();
-var tim=$("#time").val();
+
  var qp=$("#question").val();
  var opttype=$("#opttype").val();
  var opt=$("#opt").val();
@@ -158,32 +287,37 @@ $("body").append($(".container"))
 divvr.append(divvc4.text(ans))
 $(".container").append(divvr)
 $("body").append($(".container"))
-var test={
-  name:sub,
-  no: count,
-  time: tim
-}
-
   var questions={
     question:qp,
     optiontype:opttype,
     options:opt.split(","),
-    answer:ans
+    answer:ans.split(",")
   }
-
 quiz.push(questions)
 console.log(quiz)
-console.log(test)
-test.questionss=quiz
 
-
-localStorage.setItem('quuest', JSON.stringify(quiz));
 }
+function cardcreate(){
+ testseries=JSON.parse(localStorage.getItem('quuest'));
+ 
+var sub=$("#nameofsub").val();
+var count=$("#questionno").val();
+var tim=$("#time").val();
+test={
+  name:sub,
+  no: count,
+  time: tim
+} 
 
-
-
+test.questionss=quiz 
+if (testseries==null){
+  testseries=[]
+}
+else{
+testseries.push(test)
+}
+localStorage.setItem('quuest', JSON.stringify(testseries));
+}
 </script>
-    
-
 </body>
 </html>

@@ -3,8 +3,8 @@
     <title>
         Test Your Brain
     </title>
-    <link rel="stylesheet" href="C:\Users\owner\Desktop\priyanka\questionmodified\css\bootstrap.css">
-    <link rel="stylesheet" href="C:\Users\owner\Desktop\priyanka\questionmodified\css\style.css">
+    <link rel="stylesheet" href="C:\Users\Flemin\Desktop\priyanka\project\testseriessite\css\bootstrap.css">
+    <link rel="stylesheet" href="C:\Users\Flemin\Desktop\priyanka\project\testseriessite\css\style.css">
     <style>
     .mystyle{
       font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
@@ -19,15 +19,28 @@
 .mystyle a {
   color: white !important;
 }
-.col-md-4{
-  background-color:beige !important;
-}
-.col-md-8{
-  background-color:rgb(216, 245, 245) !important;
-}
+
 .form-check-label{
   margin-right: 30px;
 }
+.titleoftest{
+  display:flex;
+  margin-top: 80px;
+  font-family: fantasy;
+}
+.nameofsubj{
+  margin-left: 80px;
+  font-size: larger;
+  }
+  .noofqq{
+    margin-left: 80px;
+  font-size: larger;
+  }
+  .times{
+    margin-left: 80px;
+  font-size: larger;
+  }
+
 </style>
 
 </head>
@@ -40,15 +53,39 @@
     </header>
     <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
     <script>
-     var basicpage=$("<div class='container-fluid'></div>")
-     var rowbase=$("<div class='row'></div")
+     var question1 =JSON.parse(localStorage.getItem('taketest'));
+     var questions1=question1.questionss;
+    // console.log(questions1.length)
+    var countright=0
+    var countwrong=0
+    var basicpage=$("<div class='container-fluid'></div>")
+    var rowbase=$("<div class='row'></div")
+      var titleoftest=$("<div class='col-md-12 titleoftest'></div>");
      var col1=$("<div class= 'col-md-4'></div>")
      var col2=$("<div class= 'col-md-8'></div>")
-     var questions1 =JSON.parse(localStorage.getItem('quuest'));
-     console.log(questions1)  
-     rowbase.append(col1).append(col2)
+     rowbase.append(titleoftest)
+    load();
+
+function load(){
+  
+     
+     rowbase.append(col1)
+     rowbase.append(col2)
      basicpage.append(rowbase)
      $("body").append(basicpage)
+      
+     //$.each(question1,function(j,vall){
+
+    //console.log(questions1)
+     var namesub=question1.name
+     var noofque=question1.no
+     var timme=question1.time
+    
+    var ns=$("<div class='nameofsubj'>Name of Subject: "+namesub+"</div>");
+    var noqu=$("<div class='noofqq'>No. of Questions: "+noofque+"</div>");
+    var timm=$("<div class='times'>Time: "+timme+"minutes</div>");
+    titleoftest.append(ns).append(noqu).append(timm)
+    
      var qs=$("<div class='forqs'></div>");
      col2.append(qs)
      $.each(questions1,function(i,q1){
@@ -56,16 +93,73 @@
      var lis=$("<li>");
      qs.append(lis.text(questions1[i].question));
      var divforin=$("<div class='form check form-check-inline'></div>");
-     $.each(questions1[i].options,function(j,opti){
-     var inp=$("<input class='form-check-input' id= 'ques'"+ i+" "+"type="+ questions1[i].optiontype +" "+ "name='ques'"+i+">");
-     var lab=$("<label class='form-check-label' for='ques1'"+i+">"+questions1[i].options[j]+"</label>")
+     $.each(questions1[i].options,function(p,opti){
+     var inp=$("<input class='form-check-input question"+i+"'"+" "+"value="+questions1[i].options[p]+" "+" id= 'ques"+ i+p+"'"+ " "+"type="+ questions1[i].optiontype +" "+ "name='ques"+i+"'"+">");
+     var lab=$("<label class='form-check-label' for='ques"+i+"'>"+questions1[i].options[p]+"</label>")
+     //console.log(inp.val())
      divforin.append(inp).append(lab)
      qs.append(divforin)
      })
      
      })
+    
+    //})
+    var divforsubmit=$("<div class=row></div>") 
+    var centring= $("<div class= 'col-md-12 text-center'></div>")
+    var buttonforsubmit=$("<button type='button' id='submit1' onclick='getvalueofinput()' class='btn btn-success'>Submit</button>")
+    centring.append(buttonforsubmit)
+    divforsubmit.append(centring)
+    col2.append(divforsubmit)
+    $("body").append(basicpage)
+}
+
      
-     
+    
+    function getvalueofinput(){
+      for (var u=0;u<questions1.length;u++){
+     var opt=questions1[u].options
+     var answerr=questions1[u].answer
+     console.log(answerr)
+    
+     optionschecked=[]
+     for(l=0;l<opt.length;l++){
+       if($("input#ques"+u+l).is(":checked")){
+       
+         var f=l+1
+         optionschecked.push(f.toString())
+         
+        
+       }
+       
+     }
+    
+     if(optionschecked.length==answerr.length){
+           for(var b=0;b<optionschecked.length;b++){
+             if(answerr.includes(optionschecked[b])){
+               if(b==(optionschecked.length-1)){
+              console.log("correct answer") 
+              countright=countright+1
+
+             }
+            }
+             else{
+               console.log("wrong answer")
+               countwrong=countwrong+1
+               break;
+             }
+           }
+         }
+         else{
+           console.log("wrong answer")
+           countwrong=countwrong+1
+         }
+     console.log(optionschecked)
+      } 
+ var mark=$("<div class='markoftest'>Marks: "+countright+" "+"out of "+questions1.length+"</div>") 
+ col2.append(mark)    
+console.log(countright)
+console.log(countwrong)
+}    
      
  </script>
 

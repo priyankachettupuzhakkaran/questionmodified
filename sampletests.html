@@ -3,7 +3,7 @@
         <title>
             Build your knowledge
         </title>
-        <link rel="stylesheet" href="C:\Users\owner\Desktop\priyanka\questionmodified\css\bootstrap.css">
+        <link rel="stylesheet" href="C:\Users\Flemin\Desktop\priyanka\project\testseriessite\css\bootstrap.css">
     </head>
     <style>
         .mystyle{
@@ -44,8 +44,8 @@
                         <p class="card-text"> Questions:5 </p>
                         <p class="card-text" style="margin-left:10px">Time:1 min </p>
                        </div>
-                       <a href="Taketest.html" class="card-link">
-                         <button type="button" class="btn btn-success">take test</button>
+                       <a href="Taketest.html"  class="card-link">
+                         <button type="button" id="s1" class="btn btn-success" onclick="taketest()">take test</button>
                         </a>
                        </div>
                      </div>
@@ -59,7 +59,7 @@
                       <p class="card-text" style="margin-left:10px">Time:1 min </p>
                     </div>
                       <a href="Taketest.html" class="card-link">
-                      <button type="button" class="btn btn-success">take test</button>
+                      <button type="button"  id="s2" class="btn btn-success" onclick="taketest()">take test</button>
                       </a>
                     </div>
                   </div>
@@ -73,7 +73,7 @@
                           <p class="card-text" style="margin-left:10px">Time:1 min </p>
                         </div>
                           <a href="Taketest.html" class="card-link">
-                          <button type="button" class="btn btn-success">take test</button>
+                          <button type="button" id="s3" class="btn btn-success" onclick="taketest()">take test</button>
                           </a>
                         </div>
                       </div>
@@ -87,27 +87,71 @@
                                   <p class="card-text" style="margin-left:10px">Time:1 min </p>
                                </div>
                               <a href="Taketest.html" class="card-link">
-                              <button type="button" class="btn btn-success">take test</button>
+                              <button type="button" id="s4" class="btn btn-success" onclick="taketest()">take test</button>
                               </a>
                             </div>
                           </div>
                     </div>
 
             </div>
-            <div class="row justify-content-md-center">
-                <div class="col col-sm-2 formargin"  >
-                    
-                          <a href="Addquestion.html" class="card-link">
-                             <button type="button" class="btn btn-success">Add Test</button>
-                          </a>
-                       
-                </div>
-            <div>
+            
     
     
         </div>
         <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
-        <script src="C:\Users\owner\Desktop\priyanka\questionmodified\js\cardcreate.js">
-          </script>
+        <script >
+        
+         var testseries=JSON.parse(localStorage.getItem('quuest'));
+         if (testseries!=null){
+         var leen=(testseries.length)-1
+          console.log(testseries)
+          console.log(testseries[0].name)
+          console.log(testseries[0].no)
+          console.log(testseries[0].time)
+
+         
+            var rrow=$("<div class='row'></div>")
+            var i;
+            for(i=0;i<testseries.length;i++){
+var coll=$("<div class='col-sm'></div>")
+var cardd=$("<div class='card' style='width: 18rem'><div>")
+var cardbod=$("<div class='card-body'></div>")
+var headi=$("<h5 class='card-title'>Electronic Devices</h5>")
+var textdetails=$("<div class='questiontime'></div>")
+var p1=$("<p class='card-text'> Questions:5 </p>")
+var p2=$("<p class='card-text' style='margin-left:10px'>Time:1 min </p>")
+var linking=$("<a href ='Taketest.html' class='card-link'></a>")
+var butt=$("<button type='button' id="+i+" "+ "class='btn btn-success' onclick='taketest(this.id)'>take test</button>")
+headi.text((testseries[i].name))
+p1.text("Questions:"+" "+testseries[i].no)
+p2.text("Time:"+" "+testseries[i].time)
+linking.append(butt)
+textdetails.append(p1).append(p2)
+cardbod.append(headi).append(textdetails).append(linking)
+cardd.append(cardbod)
+coll.append(cardd)
+rrow.append(coll)
+$(".container-fluid").append(rrow)
+         }
+
+            
+          }
+         rowaddtestt= $("<div class='row justify-content-md-center'></div>")
+         coladdtestt=$("<div class='col col-sm-2 formargin'></div>") 
+          linkings=$("<a href='Addquestion.html' class='card-link'></a>")
+            buttoning=$("<button type='button' class='btn btn-success'>Add Test</button>")
+      linkings.append(buttoning)
+      coladdtestt.append(linkings)
+      rowaddtestt.append(coladdtestt)
+      $(".container-fluid").append(rowaddtestt)
+      function taketest(clicked){
+        id=clicked
+        localStorage.setItem('ids', JSON.stringify(id))
+        
+        localStorage.setItem('taketest', JSON.stringify(testseries[id]))
+
+      }
+      </script>
+          
     </body>
 </html>
