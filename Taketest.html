@@ -76,7 +76,7 @@ function load(){
       
      //$.each(question1,function(j,vall){
 
-    //console.log(questions1)
+    console.log(questions1)
      var namesub=question1.name
      var noofque=question1.no
      var timme=question1.time
@@ -89,8 +89,9 @@ function load(){
      var qs=$("<div class='forqs'></div>");
      col2.append(qs)
      $.each(questions1,function(i,q1){
-     
+     //var order=$("<ol>")
      var lis=$("<li>");
+     // qs.append(order)
      qs.append(lis.text(questions1[i].question));
      var divforin=$("<div class='form check form-check-inline'></div>");
      $.each(questions1[i].options,function(p,opti){
@@ -159,6 +160,8 @@ function load(){
  col2.append(mark)    
 console.log(countright)
 console.log(countwrong)
+alert("Submitted successfully")
+$("#submit1").attr("disabled", true)
 }    
      
  </script>

@@ -1,43 +1,239 @@
-<html lang="en">
-  <head>
-    <title>
-        Test Your Brain
-    </title>
-    <link rel="stylesheet" href="C:\Users\Flemin\Desktop\priyanka\project\testseriessite\css\bootstrap.css">
-    <link rel="stylesheet" href="C:\Users\Flemin\Desktop\priyanka\project\testseriessite\css\style.css">
-  
-</head>
-<body>
-    <header>
+<html>
+    <head>
+        <title>
+            Build your knowledge
+        </title>
+        <link rel="stylesheet" href="C:\Users\Flemin\Desktop\priyanka\project\testseriessite\css\bootstrap.css">
+    </head>
+    <style>
+        .mystyle{
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+            font-size: larger;
+            display:flex;
+            background-image: linear-gradient(45deg, #05bcdc, #55f5c1);
+            box-shadow: 1px 3px 8px 1px #49a9a9;
+            /*background-color: rgb(229, 221, 236) !important;*/
+        }
+        .mystyle a {
+        color: white !important;
+      }
         
-       
-        <nav class="navbar navbar-expand-lg navbar-light bg-light" background-color= "rgb(11, 226, 226)">
-            <a class="navbar-brand" href="index.html">
-                <div  class="nav flex-column">
-                <img src="C:\Users\Flemin\Desktop\priyanka\testseriessite\images\mylogo.jpg" width="50" height="50" class="d-inline-block align-top" alt=""></a>
+         .card{
+             margin-top: 20px;
+             margin-left:20px;
+         } 
+         .questiontime{
+             display:flex;
+         } 
+         .formargin{
+             margin-top: 30px;
+         }     
+         
+    </style>
+    <body>
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light bg-light mystyle">
+                <a class="navbar-brand">Build Your Knowledge</a>
                 
-                   <a class="navbar-brand" href="index.html" font-family="sans-serif" color="red">Interview Questions</a>
-                </div>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-          
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home </a>
-                </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="Addquestion.html">Add Questions </a>
-                  </li>
-                  <li class="nav-item active">
-                    <a class="nav-link" href="Taketest.html">TakeTest </a>
-                  </li>
-                </ul>  
-            </div>
+            </nav>
+        </header>
+        <div class="container-fluid">
             
-        </nav>
+    
+    
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.0.js"></script>
+        <script >
+           var testseries1=[
+  {
+                name:"Basics of JAVAs",
+                no:"5",
+                time:"3 min(s)",
+                questionss:[{
+                    question:"Which of the following option leads to the portability and security of Java?",
+                    optiontype:"checkbox",
+                    options:["Bytecode is executed by JVM", "The applet makes the Java code secure and portable","Use of exception handling","Dynamic binding between objects"],
+                    answer:["1"]
+                },
+            {question:"Which of the following is not a Java features?",
+            optiontype:"checkbox",
+            options:["Dynamic","Architecture Neutral","Use of pointers","Object-oriented"],
+            answer:["3"]
+            },
+            {question:"_____ is used to find and fix bugs in the Java programs.",
+            optiontype:"checkbox",
+            options:["JVM","JRE","JDK","JDB"],
+            answer:["4"]
+            },
+            {question:"What is the return type of the hashCode() method in the Object class?",
+            optiontype:"checkbox",
+            options:["Object","int","long","void"],
+            answer:["2"]
+            },
+            {question:" Which of the following creates a List of 3 visible items and multiple selections abled?",
+            optiontype:"checkbox",
+            options:["new List(false, 3)","new List(3, true)","new List(true, 3)","new List(3, false)"],
+            answer:["2"]
+
+        }]
+            },
+            {
+                name:"Analog Electronics",
+                no:"5",
+                time:"1 min(s)",
+                questionss:[{
+                    question:"what is a transistor?",
+                    optiontype:"checkbox",
+                    options:["amplifier", "switch","all of the above","none of these"],
+                    answer:["3"]
+                },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:["2"]
+            },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:["2"]
+            },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:["2"]
+            },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:["2"]
+
+        }]
+            },{
+                name:"Analog Communication",
+                no:"5",
+                time:"1 min(s)",
+                questionss:[{
+                    question:"what is a transistor?",
+                    optiontype:"checkbox",
+                    options:["amplifier", "switch","all of the above","none of these"],
+                    answer:["3"]
+                },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:["2"]
+            },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:["2"]
+            },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:["2"]
+            },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:["2"]
+
+        }]
+            },{
+                name:"Digital Communication",
+                no:"5",
+                time:"1 min(s)",
+                questionss:[{
+                    question:"what is a transistor?",
+                    optiontype:"checkbox",
+                    options:["amplifier", "switch","all of the above","none of these"],
+                    answer:["3"]
+                },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:["2"]
+            },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:["2"]
+            },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:["2"]
+            },
+            {question:"A diode conducts while in bias",
+            optiontype:"checkbox",
+            options:["reverse","forward","both"],
+            answer:["2"]
+
+        }]
+            }]
+            var testseries=JSON.parse(localStorage.getItem('quuest'));
+            if(testseries==null){
+                localStorage.setItem('quuest', JSON.stringify(testseries1));
+                var testseries=JSON.parse(localStorage.getItem('quuest'));
+            }
         
-    </header>
-</body>
+              
+              
+            
+            
+       
+        
+         
+         if (testseries!=null){
+         var leen=(testseries.length)-1
+          console.log(testseries)
+          console.log(testseries[0].name)
+          console.log(testseries[0].no)
+          console.log(testseries[0].time)
+
+         
+            var rrow=$("<div class='row'></div>")
+            var i;
+            for(i=0;i<testseries.length;i++){
+var coll=$("<div class='col-sm'></div>")
+var cardd=$("<div class='card' style='width: 18rem'><div>")
+var cardbod=$("<div class='card-body'></div>")
+var headi=$("<h5 class='card-title'>Electronic Devices</h5>")
+var textdetails=$("<div class='questiontime'></div>")
+var p1=$("<p class='card-text'> Questions:5 </p>")
+var p2=$("<p class='card-text' style='margin-left:10px'>Time:1 min </p>")
+var linking=$("<a href ='Taketest.html' class='card-link'></a>")
+var butt=$("<button type='button' id="+i+" "+ "class='btn btn-success' onclick='taketest(this.id)'>Take Test</button>")
+headi.text((testseries[i].name))
+p1.text("Questions:"+" "+testseries[i].no)
+p2.text("Time:"+" "+testseries[i].time)
+linking.append(butt)
+textdetails.append(p1).append(p2)
+cardbod.append(headi).append(textdetails).append(linking)
+cardd.append(cardbod)
+coll.append(cardd)
+rrow.append(coll)
+$(".container-fluid").append(rrow)
+         }
+
+            
+          }
+         rowaddtestt= $("<div class='row justify-content-md-center'></div>")
+         coladdtestt=$("<div class='col col-sm-2 formargin'></div>") 
+          linkings=$("<a href='Addquestion.html' class='card-link'></a>")
+            buttoning=$("<button type='button' class='btn btn-success'>Add Test</button>")
+      linkings.append(buttoning)
+      coladdtestt.append(linkings)
+      rowaddtestt.append(coladdtestt)
+      $(".container-fluid").append(rowaddtestt)
+      function taketest(clicked){
+        id=clicked
+        localStorage.setItem('ids', JSON.stringify(id))
+        
+        localStorage.setItem('taketest', JSON.stringify(testseries[id]))
+
+      }
+      </script>
+          
+    </body>
 </html>

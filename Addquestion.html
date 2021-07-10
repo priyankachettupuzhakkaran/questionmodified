@@ -88,7 +88,10 @@
     <div class="form-row">
       <div class="form-group col-md-2">
         <label for="opttype">Option Type</label>
-        <input type="text" class="form-control" id="opttype">
+        <select name="opttype"  class="form-control" id="opttype">
+          <option value="checkbox">checkbox</option>
+          <option value="radio">radio</option>
+          </select>
       </div>
       <div class="form-group col-md-2">
         <label for="opt">Option </label>
@@ -127,149 +130,34 @@
 <script>
   var quiz=[]
   var test={}
-  var testseries=[
-  {
-                name:"Electronic Devices",
-                no:"5",
-                time:"1",
-                questions:[{
-                    question:"what is a transistor?",
-                    optiontype:"checkbox",
-                    options:["amplifier", "switch","all of the above","none of these"],
-                    answer:"3"
-                },
-            {question:"A diode conducts while in bias",
-            optiontype:"checkbox",
-            options:["reverse","forward","both"],
-            answer:"2"
-            },
-            {question:"A diode conducts while in bias",
-            optiontype:"checkbox",
-            options:["reverse","forward","both"],
-            answer:"2"
-            },
-            {question:"A diode conducts while in bias",
-            optiontype:"checkbox",
-            options:["reverse","forward","both"],
-            answer:"2"
-            },
-            {question:"A diode conducts while in bias",
-            optiontype:"checkbox",
-            options:["reverse","forward","both"],
-            answer:"2"
+ 
+var testseries=[]
 
-        }]
-            },
-            {
-                name:"Electronic Devices",
-                no:"5",
-                time:"1",
-                questions:[{
-                    question:"what is a transistor?",
-                    optiontype:"checkbox",
-                    options:["amplifier", "switch","all of the above","none of these"],
-                    answer:"3"
-                },
-            {question:"A diode conducts while in bias",
-            optiontype:"checkbox",
-            options:["reverse","forward","both"],
-            answer:"2"
-            },
-            {question:"A diode conducts while in bias",
-            optiontype:"checkbox",
-            options:["reverse","forward","both"],
-            answer:"2"
-            },
-            {question:"A diode conducts while in bias",
-            optiontype:"checkbox",
-            options:["reverse","forward","both"],
-            answer:"2"
-            },
-            {question:"A diode conducts while in bias",
-            optiontype:"checkbox",
-            options:["reverse","forward","both"],
-            answer:"2"
-
-        }]
-            },{
-                name:"Electronic Devices",
-                no:"5",
-                time:"1",
-                questions:[{
-                    question:"what is a transistor?",
-                    optiontype:"checkbox",
-                    options:["amplifier", "switch","all of the above","none of these"],
-                    answer:"3"
-                },
-            {question:"A diode conducts while in bias",
-            optiontype:"checkbox",
-            options:["reverse","forward","both"],
-            answer:"2"
-            },
-            {question:"A diode conducts while in bias",
-            optiontype:"checkbox",
-            options:["reverse","forward","both"],
-            answer:"2"
-            },
-            {question:"A diode conducts while in bias",
-            optiontype:"checkbox",
-            options:["reverse","forward","both"],
-            answer:"2"
-            },
-            {question:"A diode conducts while in bias",
-            optiontype:"checkbox",
-            options:["reverse","forward","both"],
-            answer:"2"
-
-        }]
-            },{
-                name:"Electronic Devices",
-                no:"5",
-                time:"1",
-                questions:[{
-                    question:"what is a transistor?",
-                    optiontype:"checkbox",
-                    options:["amplifier", "switch","all of the above","none of these"],
-                    answer:"3"
-                },
-            {question:"A diode conducts while in bias",
-            optiontype:"checkbox",
-            options:["reverse","forward","both"],
-            answer:"2"
-            },
-            {question:"A diode conducts while in bias",
-            optiontype:"checkbox",
-            options:["reverse","forward","both"],
-            answer:"2"
-            },
-            {question:"A diode conducts while in bias",
-            optiontype:"checkbox",
-            options:["reverse","forward","both"],
-            answer:"2"
-            },
-            {question:"A diode conducts while in bias",
-            optiontype:"checkbox",
-            options:["reverse","forward","both"],
-            answer:"2"
-
-        }]
-            }]
-  
-  
-
+ //console.log(sub)
+ 
   var qcount=0 
  function addtable(){
-   var count=$("#questionno").val();
+  var count=$("#questionno").val();
+  var sub=$("#nameofsub").val();
+  var tim=$("#time").val();
+var qp=$("#question").val();
+ var opttype=$("#opttype").val();
+ var opt=$("#opt").val();
+ var ans=$("#ans").val();
+  if((count&&qp&&opttype&&opt&&ans)===''){
+    alert("Required fields not filled. Please fill the fields")
+  }
+else{
+   
   console.log(count)
   qcount=qcount+1
 if(qcount==count){
   $("#add").attr("disabled", true)&&$("#submit").attr("disabled", false);
 }
 
- var qp=$("#question").val();
- var opttype=$("#opttype").val();
- var opt=$("#opt").val();
- var ans=$("#ans").val();
+
+
+ 
 var divvr=$("<div class='row'></div>")
 var divvc1=$("<div class='col-md-4'></div>")
 var divvc2=$("<div class='col-md-2'></div>")
@@ -295,14 +183,26 @@ $("body").append($(".container"))
   }
 quiz.push(questions)
 console.log(quiz)
-
+$("#question").val('');
+$("#opttype").val('');
+$("#opt").val('');
+$("#ans").val('');
+$("#question").focus();
+$("#question").select();
+                    
+ }
 }
+
 function cardcreate(){
+  
  testseries=JSON.parse(localStorage.getItem('quuest'));
- 
-var sub=$("#nameofsub").val();
+ var sub=$("#nameofsub").val();
 var count=$("#questionno").val();
 var tim=$("#time").val();
+if(sub&&tim===''){
+  alert("Required fields not filled. Please fill the fields")
+  }
+else{
 test={
   name:sub,
   no: count,
@@ -317,7 +217,16 @@ else{
 testseries.push(test)
 }
 localStorage.setItem('quuest', JSON.stringify(testseries));
+$("#nameofsub").val('');
+$("#questionno").val('');
+$("#time").val('');
+$("#nameofsub").focus();
+$("#nameofsub").select();
+$("#add").attr("disabled", false)&&$("#submit").attr("disabled", true);
+window.location.reload();
 }
+}
+
 </script>
 </body>
 </html>
